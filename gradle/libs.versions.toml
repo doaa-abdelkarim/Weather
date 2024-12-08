@@ -17,6 +17,7 @@ navigationCompose = "2.8.3"
 kotlinxSerializationJson = "1.6.3"
 loggingInterceptor = "4.12.0"
 timber = "5.0.1"
+lifecycleVersion = "2.8.6"
 coilCompose = "3.0.0-rc02"
 jetbrainsKotlinJvm = "1.9.0"
 appcompat = "1.7.0"
@@ -50,6 +51,7 @@ androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
 timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleVersion" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilCompose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coilCompose" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }

@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     kotlin("plugin.serialization") version "2.0.21"
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -70,8 +71,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(project(":data"))
+    implementation(project(":domain"))
+
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.android.compiler)
 
     // Navigation Component
     implementation(libs.androidx.navigation.compose)
@@ -82,7 +91,7 @@ dependencies {
 
     //Lifecycle
     // ViewModel
-//    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
 
     //Coil
     implementation(libs.coil.compose)

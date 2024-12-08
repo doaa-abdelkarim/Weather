@@ -2,7 +2,7 @@ package com.example.data.local.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.domain.Weather
+import com.example.domain.entities.Weather
 
 @Entity(
     tableName = "weather_table"
@@ -12,5 +12,5 @@ data class LocalWeather(
     val id: Int
 )
 
-fun LocalWeather.asDomainModel(): Weather =
-    Weather()
+//fun LocalWeather.asDomainModel(): Weather =
+//    Weather()
