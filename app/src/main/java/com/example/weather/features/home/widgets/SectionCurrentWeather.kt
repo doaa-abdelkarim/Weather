@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -46,7 +47,7 @@ fun SectionCurrentWeather(
 
         is UIState.Data -> {
             Column(
-                modifier = modifier,
+                modifier = modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -79,7 +80,7 @@ fun SectionCurrentWeather(
                         fontWeight = FontWeight.Bold
                     )
                 )
-                Row(verticalAlignment = Alignment.Bottom) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
                     CustomSubcomposeAsyncImage(
                         modifier = Modifier
                             .width(dimensionResource(R.dimen.view_size_64dp))
@@ -88,9 +89,12 @@ fun SectionCurrentWeather(
                         contentDescription = stringResource(R.string.weather_condition_icon)
                     )
                     Text(
-                        text = currentWeatherState.data.temp.toString(),
+                        text = stringResource(
+                            R.string.celsius,
+                            currentWeatherState.data.temp.toString()
+                        ),
                         style = TextStyle(
-                            fontSize = 52.sp,
+                            fontSize = 40.sp,
                             color = black,
                         )
                     )

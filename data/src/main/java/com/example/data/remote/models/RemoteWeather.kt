@@ -1,5 +1,6 @@
 package com.example.data.remote.models
 
+import com.example.core.utils.DateUtil
 import com.example.domain.entities.Weather
 import com.google.gson.annotations.SerializedName
 
@@ -143,7 +144,7 @@ data class Wind(
 
 fun RemoteWeather.asDomainModel(): Weather =
     Weather(
-        time = dt,
+        time = dt?.let { DateUtil.convertLongToTime(dt) },
         name = name,
         description = weather?.get(0)?.description,
         icon = weather?.get(0)?.icon,

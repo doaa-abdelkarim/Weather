@@ -1,7 +1,7 @@
 package com.example.weather.features.home.widgets
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
@@ -24,10 +24,10 @@ import com.example.weather.ui.theme.veryDarkGray
 fun CellForecast(weather: Weather) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
+            modifier = Modifier.fillMaxWidth(0.4f),
             text = weather.time.toString(),
             style = TextStyle(
                 fontSize = 18.sp,
@@ -45,17 +45,18 @@ fun CellForecast(weather: Weather) {
                 contentDescription = stringResource(R.string.weather_condition_icon)
             )
             Text(
-                text = weather.temp.toString(),
+                text = stringResource(R.string.celsius, weather.temp.toString()),
                 style = TextStyle(
                     fontSize = 18.sp,
                     color = black,
                 )
             )
         }
+        Spacer(modifier = Modifier.weight(1f))
         Text(
             text = weather.description ?: "-",
             style = TextStyle(
-                fontSize = 12.sp,
+                fontSize = 14.sp,
                 color = veryDarkGray,
             )
         )

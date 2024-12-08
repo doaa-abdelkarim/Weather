@@ -2,6 +2,9 @@
     <string name="app_name">Weather</string>
     <string name="unknown_error">Unknown error</string>
     <string name="broken_image">Broken image</string>
+    <string name="search">Search</string>
+    <string name="search_city">Search city</string>
     <string name="weather_condition_icon">Weather condition icon</string>
+    <string name="celsius">%s°C</string>
     <string name="five_day_forecast">5-day forecast</string>
 </resources>
