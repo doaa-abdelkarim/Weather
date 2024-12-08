@@ -7,4 +7,8 @@
     <string name="weather_condition_icon">Weather condition icon</string>
     <string name="celsius">%s°C</string>
     <string name="five_day_forecast">5-day forecast</string>
+    <string name="we_kindly_request_your_permission_to_access_your_current_location">We kindly request your permission to access your current location. If it doesn\'t work, then you\'ll have to do it manually from the settings.</string>
+    <string name="to_use_this_app_functionalities_you_need_to_give_us_the_permission">To use this app\'s functionalities, you need to give us the permission.</string>
+    <string name="permission_request">Permission Request</string>
+    <string name="give_permission">Give Permission</string>
 </resources>

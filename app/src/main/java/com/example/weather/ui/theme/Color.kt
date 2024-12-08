@@ -16,4 +16,4 @@ val transparent = Color.Transparent
 val softRed = Color(0xFFEB6E4B)
 val veryDarkGray = Color(0xFF717171)
 val strongPink = Color(0xFFD60B41)
-val blue = Color(0xFF0000FF)
+val pureBlue = Color(0xFF0090FF)

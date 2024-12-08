@@ -23,21 +23,7 @@ class HomeViewModel @Inject constructor(
     private val _nextFiveDaysForecast = MutableStateFlow<UIState<List<Weather>>>(UIState.Initial)
     val nextFiveDaysForecast = _nextFiveDaysForecast.asStateFlow()
 
-    init {
-        getCurrentWeather(
-            lat = 44.34,
-            lng = 10.99,
-            units = Unit.METRIC.value
-        )
-
-        getNextFiveDaysForecast(
-            lat = 44.34,
-            lng = 10.99,
-            units = Unit.METRIC.value
-        )
-    }
-
-    private fun getCurrentWeather(
+    fun getCurrentWeather(
         lat: Double,
         lng: Double,
         units: String
@@ -58,7 +44,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun getNextFiveDaysForecast(
+    fun getNextFiveDaysForecast(
         lat: Double,
         lng: Double,
         units: String

@@ -40,4 +40,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+//    implementation("androidx.compose.material3:material3-window-size-class")
+
+    //Play Services Location
+    implementation (libs.play.services.location)
 }

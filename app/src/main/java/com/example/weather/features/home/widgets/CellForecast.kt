@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.sp
 import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.common.CustomSubcomposeAsyncImage
-import com.example.weather.constants.AppConstants
+import com.example.weather.constants.Constants
 import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.veryDarkGray
 
@@ -41,7 +41,7 @@ fun CellForecast(weather: Weather) {
                 modifier = Modifier
                     .width(dimensionResource(R.dimen.view_size_48dp))
                     .height((dimensionResource(R.dimen.view_size_48dp))),
-                data = "${AppConstants.WEATHER_CONDITION_ICON_BASE_URL}${weather.icon}.png",
+                data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${weather.icon}.png",
                 contentDescription = stringResource(R.string.weather_condition_icon)
             )
             Text(

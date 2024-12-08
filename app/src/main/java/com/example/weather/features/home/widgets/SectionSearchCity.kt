@@ -15,7 +15,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
 import com.example.weather.R
-import com.example.weather.ui.theme.blue
+import com.example.weather.ui.theme.pureBlue
 
 @Composable
 fun SectionSearchCity(
@@ -29,14 +29,14 @@ fun SectionSearchCity(
     ) {
         Icon(
             imageVector = Icons.Default.Search,
-            tint = blue,
+            tint = pureBlue,
             contentDescription = stringResource(R.string.search)
         )
         Text(
             text = stringResource(R.string.search_city),
             style = TextStyle(
                 fontSize = 16.sp,
-                color = blue,
+                color = pureBlue,
                 textDecoration = TextDecoration.Underline
             )
         )

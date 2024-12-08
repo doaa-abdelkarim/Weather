@@ -71,8 +71,16 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(project(":data"))
     implementation(project(":domain"))
+    implementation(project(":data"))
+    implementation(project(":core"))
+
+    //Accompanist
+    implementation (libs.accompanist.permissions)
+
+    //Coil
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
 
     //Coroutines
     implementation(libs.kotlinx.coroutines.android)
@@ -82,6 +90,10 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
+    //Lifecycle
+    // ViewModel
+    implementation(libs.lifecycle.viewmodel.ktx)
+
     // Navigation Component
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
@@ -89,11 +101,4 @@ dependencies {
     //Timber
     implementation(libs.timber)
 
-    //Lifecycle
-    // ViewModel
-    implementation(libs.lifecycle.viewmodel.ktx)
-
-    //Coil
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.okhttp)
 }

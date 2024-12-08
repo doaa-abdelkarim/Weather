@@ -24,7 +24,7 @@ import com.example.weather.R
 import com.example.weather.common.CustomCircularProgressIndicator
 import com.example.weather.common.CustomSubcomposeAsyncImage
 import com.example.weather.common.UIState
-import com.example.weather.constants.AppConstants
+import com.example.weather.constants.Constants
 import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.softRed
 import com.example.weather.ui.theme.strongPink
@@ -35,8 +35,7 @@ fun SectionCurrentWeather(
     currentWeatherState: UIState<Weather>
 ) {
     when (currentWeatherState) {
-        is UIState.Initial -> {}
-        is UIState.Loading -> {
+        is UIState.Initial, UIState.Loading -> {
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
@@ -85,7 +84,7 @@ fun SectionCurrentWeather(
                         modifier = Modifier
                             .width(dimensionResource(R.dimen.view_size_64dp))
                             .height((dimensionResource(R.dimen.view_size_64dp))),
-                        data = "${AppConstants.WEATHER_CONDITION_ICON_BASE_URL}${currentWeatherState.data.icon}.png",
+                        data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${currentWeatherState.data.icon}.png",
                         contentDescription = stringResource(R.string.weather_condition_icon)
                     )
                     Text(

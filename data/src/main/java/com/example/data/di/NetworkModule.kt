@@ -1,9 +1,9 @@
 package com.example.data.di
 
-import com.example.data.remote.apis.APIConstants.Companion.API_KEY
-import com.example.data.remote.apis.APIConstants.Companion.BASE_URL
-import com.example.data.remote.apis.APIConstants.Companion.PARAM_API_KEY
-import com.example.data.remote.apis.APIConstants.Companion.TAG_OK_HTTP
+import com.example.data.remote.apis.Constants.API_KEY
+import com.example.data.remote.apis.Constants.BASE_URL
+import com.example.data.remote.apis.Constants.PARAM_API_KEY
+import com.example.data.remote.apis.Constants.TAG_OK_HTTP
 import com.example.data.remote.apis.WeatherAPI
 import dagger.Module
 import dagger.Provides
