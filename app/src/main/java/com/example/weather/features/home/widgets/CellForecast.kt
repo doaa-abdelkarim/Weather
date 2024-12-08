@@ -13,6 +13,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
+import com.example.core.utils.DateUtil
 import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.common.CustomSubcomposeAsyncImage
@@ -28,7 +29,7 @@ fun CellForecast(weather: Weather) {
     ) {
         Text(
             modifier = Modifier.fillMaxWidth(0.4f),
-            text = weather.time.toString(),
+            text = weather.date?.let { DateUtil.convertDateToString(it) } ?: "-",
             style = TextStyle(
                 fontSize = 18.sp,
                 color = black,

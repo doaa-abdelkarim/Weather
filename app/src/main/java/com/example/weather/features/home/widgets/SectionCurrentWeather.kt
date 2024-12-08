@@ -19,6 +19,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.example.core.utils.DateUtil
 import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.common.CustomCircularProgressIndicator
@@ -51,7 +52,7 @@ fun SectionCurrentWeather(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    currentWeatherState.data.time.toString(),
+                    currentWeatherState.data.date?.let { DateUtil.convertDateToString(it) } ?: "-",
                     style = TextStyle(
                         fontSize = 21.sp,
                         color = softRed

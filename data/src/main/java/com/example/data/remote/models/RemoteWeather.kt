@@ -144,7 +144,7 @@ data class Wind(
 
 fun RemoteWeather.asDomainModel(): Weather =
     Weather(
-        time = dt?.let { DateUtil.convertLongToTime(dt) },
+        date = dt?.let { DateUtil.convertLongToDate(dt * 1000) },
         name = name,
         description = weather?.get(0)?.description,
         icon = weather?.get(0)?.icon,

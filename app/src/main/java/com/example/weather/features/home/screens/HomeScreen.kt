@@ -29,6 +29,7 @@ import com.example.core.utils.LocationUtil
 import com.example.weather.R
 import com.example.weather.common.RequestPermission
 import com.example.weather.constants.enum.Unit
+import com.example.weather.features.home.intents.ListForecastIntent
 import com.example.weather.features.home.viewmodels.HomeViewModel
 import com.example.weather.features.home.widgets.ListForecast
 import com.example.weather.features.home.widgets.SectionCurrentWeather
@@ -82,7 +83,10 @@ fun HomeScreen(
                         modifier = Modifier.fillMaxHeight(0.3f),
                         currentWeatherState = homeViewModel.currentWeather.collectAsState().value
                     )
-                    ListForecast(nextFiveDaysForecastState = homeViewModel.nextFiveDaysForecast.collectAsState().value)
+                    ListForecast(
+                        nextFiveDaysForecastState =
+                        homeViewModel.nextFiveDaysForecast.collectAsState().value
+                    )
                 }
             },
             onPermissionGranted = {
@@ -93,11 +97,12 @@ fun HomeScreen(
                         units = Unit.METRIC.value
                     )
 
-                    homeViewModel.getNextFiveDaysForecast(
-                        lat = location.latitude,
-                        lng = location.longitude,
-                        units = Unit.METRIC.value
-                    )
+                    homeViewModel.listForecastIntent.value =
+                        ListForecastIntent.GetNextFiveDaysForecast(
+                            lat = location.latitude,
+                            lng = location.longitude,
+                            units = Unit.METRIC.value
+                        )
 
                 }
                 context.findActivity()?.let {
