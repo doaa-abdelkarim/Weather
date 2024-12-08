@@ -20,4 +20,10 @@ interface WeatherAPI {
         @Query("lon") lng: Double,
         @Query("units") units: String
     ): RemoteForecast
+
+    @GET("weather")
+    suspend fun getCountryWeather(
+        @Query("q") countryName: String,
+        @Query("units") units: String
+    ): RemoteWeather
 }

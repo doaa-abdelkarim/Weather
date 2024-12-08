@@ -5,7 +5,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.weather.features.home.screens.HomeScreen
+import com.example.weather.features.search.SearchCityScreen
 import com.example.weather.navigation.Screen.Home
+import com.example.weather.navigation.Screen.SearchCity
 
 @Composable
 fun SetupNavGraph() {
@@ -15,7 +17,13 @@ fun SetupNavGraph() {
         startDestination = Home
     ) {
         composable<Home> {
-            HomeScreen()
+            HomeScreen(navigateTpSearchCityScreen = { navController.navigate(route = SearchCity) })
+        }
+
+        composable<SearchCity> {
+            SearchCityScreen(
+                navigateBack = { navController.popBackStack() }
+            )
         }
     }
 }

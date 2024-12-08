@@ -28,11 +28,11 @@ import com.example.core.extensions.findActivity
 import com.example.core.utils.LocationUtil
 import com.example.weather.R
 import com.example.weather.common.RequestPermission
-import com.example.weather.constants.enum.Unit
+import com.example.weather.constants.enum.MeasurementUnit
 import com.example.weather.features.home.intents.ListForecastIntent
 import com.example.weather.features.home.viewmodels.HomeViewModel
 import com.example.weather.features.home.widgets.ListForecast
-import com.example.weather.features.home.widgets.SectionCurrentWeather
+import com.example.weather.features.home.widgets.SectionWeather
 import com.example.weather.features.home.widgets.SectionSearchCity
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
@@ -40,6 +40,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 @Composable
 fun HomeScreen(
     homeViewModel: HomeViewModel = hiltViewModel(),
+    navigateTpSearchCityScreen: () -> Unit,
 ) {
     val context = LocalContext.current
     Scaffold(
@@ -57,8 +58,8 @@ fun HomeScreen(
             initialContent = { onRequestPermission ->
                 Column(
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(50.dp),
+                        .padding(innerPadding)
+                        .fillMaxSize(),
                     verticalArrangement = Arrangement.Center,
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -78,10 +79,10 @@ fun HomeScreen(
                         .padding(innerPadding)
                         .fillMaxSize(),
                 ) {
-                    SectionSearchCity()
-                    SectionCurrentWeather(
+                    SectionSearchCity(navigateTpSearchCityScreen = navigateTpSearchCityScreen)
+                    SectionWeather(
                         modifier = Modifier.fillMaxHeight(0.3f),
-                        currentWeatherState = homeViewModel.currentWeather.collectAsState().value
+                        weatherState = homeViewModel.currentWeather.collectAsState().value
                     )
                     ListForecast(
                         nextFiveDaysForecastState =
@@ -94,14 +95,14 @@ fun HomeScreen(
                     homeViewModel.getCurrentWeather(
                         lat = location.latitude,
                         lng = location.longitude,
-                        units = Unit.METRIC.value
+                        units = MeasurementUnit.METRIC.value
                     )
 
                     homeViewModel.listForecastIntent.value =
                         ListForecastIntent.GetNextFiveDaysForecast(
                             lat = location.latitude,
                             lng = location.longitude,
-                            units = Unit.METRIC.value
+                            units = MeasurementUnit.METRIC.value
                         )
 
                 }

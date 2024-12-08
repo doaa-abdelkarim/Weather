@@ -14,4 +14,9 @@ interface BaseWeatherRepository {
         lng: Double,
         units: String
     ): List<Weather>
+
+    suspend fun getCountryWeather(
+        countryName: String,
+        units: String
+    ): Weather
 }

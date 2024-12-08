@@ -32,5 +32,15 @@ class WeatherRepository(
             units = units
         ).asDomainModel()
     }
+
+    override suspend fun getCountryWeather(
+        countryName: String,
+        units: String
+    ): Weather {
+        return weatherAPI.getCountryWeather(
+            countryName = countryName,
+            units = units
+        ).asDomainModel()
+    }
 }
 

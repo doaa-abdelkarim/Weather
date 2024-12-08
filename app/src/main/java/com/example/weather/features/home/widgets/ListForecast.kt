@@ -42,7 +42,12 @@ fun ListForecast(
             )
         )
         when (nextFiveDaysForecastState) {
-            is UIState.Initial, UIState.Loading -> {
+            is UIState.Initial -> {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                ) {}
+            }
+            is UIState.Loading -> {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center,

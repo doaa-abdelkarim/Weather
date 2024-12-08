@@ -18,14 +18,13 @@ import com.example.weather.R
 import com.example.weather.ui.theme.pureBlue
 
 @Composable
-fun SectionSearchCity(
-) {
+fun SectionSearchCity(navigateTpSearchCityScreen: () -> Unit) {
     Row(
         modifier = Modifier
             .padding(
                 horizontal = dimensionResource(R.dimen.spacing_small),
             )
-            .clickable { },
+            .clickable { navigateTpSearchCityScreen() },
     ) {
         Icon(
             imageVector = Icons.Default.Search,

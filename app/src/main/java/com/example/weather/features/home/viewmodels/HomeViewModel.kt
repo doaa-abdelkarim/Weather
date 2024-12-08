@@ -56,11 +56,11 @@ class HomeViewModel @Inject constructor(
 
     private fun processIntent() {
         viewModelScope.launch {
-            _nextFiveDaysForecast.value = UIState.Loading
             listForecastIntent.collect {
                 when (it) {
                     is ListForecastIntent.Idle -> {}
-                    is ListForecastIntent.GetNextFiveDaysForecast ->
+                    is ListForecastIntent.GetNextFiveDaysForecast -> {
+                        _nextFiveDaysForecast.value = UIState.Loading
                         _nextFiveDaysForecast.value = try {
                             UIState.Data(
                                 data = baseWeatherRepository.getNextFiveDaysForecast(
@@ -80,6 +80,7 @@ class HomeViewModel @Inject constructor(
                         } catch (e: Exception) {
                             UIState.Error(error = e)
                         }
+                    }
                 }.exhaustive
             }
         }

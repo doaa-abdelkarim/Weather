@@ -31,12 +31,18 @@ import com.example.weather.ui.theme.softRed
 import com.example.weather.ui.theme.strongPink
 
 @Composable
-fun SectionCurrentWeather(
-    modifier: Modifier,
-    currentWeatherState: UIState<Weather>
+fun SectionWeather(
+    modifier: Modifier = Modifier,
+    weatherState: UIState<Weather>
 ) {
-    when (currentWeatherState) {
-        is UIState.Initial, UIState.Loading -> {
+    when (weatherState) {
+        is UIState.Initial -> {
+            Box(
+                modifier = modifier.fillMaxSize(),
+            ) {}
+        }
+
+        is UIState.Loading -> {
             Box(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
@@ -52,7 +58,7 @@ fun SectionCurrentWeather(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    currentWeatherState.data.date?.let { DateUtil.convertDateToString(it) } ?: "-",
+                    weatherState.data.date?.let { DateUtil.convertDateToString(it) } ?: "-",
                     style = TextStyle(
                         fontSize = 21.sp,
                         color = softRed
@@ -62,7 +68,7 @@ fun SectionCurrentWeather(
                     modifier = Modifier.padding(
                         top = dimensionResource(R.dimen.spacing_small)
                     ),
-                    text = currentWeatherState.data.name ?: "-",
+                    text = weatherState.data.name ?: "-",
                     style = TextStyle(
                         fontSize = 32.sp,
                         color = black,
@@ -73,7 +79,7 @@ fun SectionCurrentWeather(
                     modifier = Modifier.padding(
                         top = dimensionResource(R.dimen.spacing_small)
                     ),
-                    text = currentWeatherState.data.description ?: "-",
+                    text = weatherState.data.description ?: "-",
                     style = TextStyle(
                         fontSize = 18.sp,
                         color = black,
@@ -85,13 +91,13 @@ fun SectionCurrentWeather(
                         modifier = Modifier
                             .width(dimensionResource(R.dimen.view_size_64dp))
                             .height((dimensionResource(R.dimen.view_size_64dp))),
-                        data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${currentWeatherState.data.icon}.png",
+                        data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${weatherState.data.icon}.png",
                         contentDescription = stringResource(R.string.weather_condition_icon)
                     )
                     Text(
                         text = stringResource(
                             R.string.celsius,
-                            currentWeatherState.data.temp.toString()
+                            weatherState.data.temp.toString()
                         ),
                         style = TextStyle(
                             fontSize = 40.sp,
@@ -108,7 +114,7 @@ fun SectionCurrentWeather(
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
-                    text = currentWeatherState.error.localizedMessage ?: stringResource(
+                    text = weatherState.error.localizedMessage ?: stringResource(
                         R.string.unknown_error
                     ),
                     style = TextStyle(color = strongPink),
