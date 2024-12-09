@@ -3,7 +3,7 @@ package com.example.weather.features.search.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.domain.entities.Weather
-import com.example.domain.repositories.BaseWeatherRepository
+import com.example.domain.usecases.GetCityWeatherUseCase
 import com.example.weather.common.UIState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,30 +12,30 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchCountryViewModel @Inject constructor(
-    private val baseWeatherRepository: BaseWeatherRepository,
+class SearchCityViewModel @Inject constructor(
+    private val getCityWeatherUseCase: GetCityWeatherUseCase
 ) : ViewModel() {
 
-    private val _countryName = MutableStateFlow<String>("")
-    val countryName = _countryName.asStateFlow()
+    private val _cityName = MutableStateFlow<String>("")
+    val cityName = _cityName.asStateFlow()
 
-    private val _countryWeather = MutableStateFlow<UIState<Weather>>(UIState.Initial)
-    val countryWeather = _countryWeather.asStateFlow()
+    private val _cityWeather = MutableStateFlow<UIState<Weather>>(UIState.Initial)
+    val cityWeather = _cityWeather.asStateFlow()
 
 
-    fun updateCountryName(text: String) {
-        _countryName.value = text
+    fun updateCityName(text: String) {
+        _cityName.value = text
     }
 
-    fun getCountryWeather(
+    fun getCityWeather(
         units: String
     ) {
         viewModelScope.launch {
-            _countryWeather.value = UIState.Loading
-            _countryWeather.value = try {
+            _cityWeather.value = UIState.Loading
+            _cityWeather.value = try {
                 UIState.Data(
-                    data = baseWeatherRepository.getCountryWeather(
-                        countryName = _countryName.value,
+                    data = getCityWeatherUseCase(
+                        cityName = _cityName.value,
                         units = units
                     )
                 )

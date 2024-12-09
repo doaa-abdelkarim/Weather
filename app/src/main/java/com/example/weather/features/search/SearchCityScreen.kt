@@ -28,7 +28,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.weather.R
 import com.example.weather.constants.enum.MeasurementUnit
 import com.example.weather.features.home.widgets.SectionWeather
-import com.example.weather.features.search.viewmodels.SearchCountryViewModel
+import com.example.weather.features.search.viewmodels.SearchCityViewModel
 import com.example.weather.features.search.widgets.SearchBar
 import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.strongPink
@@ -37,7 +37,7 @@ import com.example.weather.ui.theme.white
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SearchCityScreen(
-    searchCountryViewModel: SearchCountryViewModel = hiltViewModel(),
+    searchCountryViewModel: SearchCityViewModel = hiltViewModel(),
     navigateBack: () -> Unit,
 ) {
     var isInputValid by remember { mutableStateOf(true) }
@@ -73,12 +73,12 @@ fun SearchCityScreen(
                     top = dimensionResource(R.dimen.spacing_large)
                 ),
                 hint = stringResource(R.string.search_city),
-                onSearch = { text -> searchCountryViewModel.updateCountryName(text = text) }
+                onSearch = { text -> searchCountryViewModel.updateCityName(text = text) }
             )
             if (!isInputValid)
                 Text(
                     modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_small)),
-                    text = stringResource(R.string.please_enter_country_name),
+                    text = stringResource(R.string.please_enter_city_name),
                     style = TextStyle(color = strongPink)
                 )
             Button(
@@ -86,11 +86,11 @@ fun SearchCityScreen(
                     .padding(top = dimensionResource(R.dimen.spacing_normal))
                     .align(Alignment.CenterHorizontally),
                 onClick = {
-                    if (searchCountryViewModel.countryName.value.isEmpty()) {
+                    if (searchCountryViewModel.cityName.value.isEmpty()) {
                         isInputValid = false
                     } else {
                         isInputValid = true
-                        searchCountryViewModel.getCountryWeather(
+                        searchCountryViewModel.getCityWeather(
                             units = MeasurementUnit.METRIC.value
                         )
                     }
@@ -100,7 +100,7 @@ fun SearchCityScreen(
             }
             SectionWeather(
                 modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_xlarge)),
-                weatherState = searchCountryViewModel.countryWeather.collectAsState().value
+                weatherState = searchCountryViewModel.cityWeather.collectAsState().value
             )
         }
     }

@@ -22,8 +22,8 @@ interface WeatherAPI {
     ): RemoteForecast
 
     @GET("weather")
-    suspend fun getCountryWeather(
-        @Query("q") countryName: String,
+    suspend fun getCityWeather(
+        @Query("q") cityName: String,
         @Query("units") units: String
     ): RemoteWeather
 }

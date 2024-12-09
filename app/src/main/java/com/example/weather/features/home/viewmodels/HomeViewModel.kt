@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.extensions.exhaustive
 import com.example.domain.entities.Weather
-import com.example.domain.repositories.BaseWeatherRepository
+import com.example.domain.usecases.GetCurrentWeatherUseCase
+import com.example.domain.usecases.GetNextFiveDaysForecastUseCase
 import com.example.weather.common.UIState
 import com.example.weather.constants.Constants.PATTERN_YYYYMMDD
 import com.example.weather.features.home.intents.ListForecastIntent
@@ -18,7 +19,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    private val baseWeatherRepository: BaseWeatherRepository,
+    private val getCurrentWeatherUseCase: GetCurrentWeatherUseCase,
+    private val getNextFiveDaysForecastUseCase: GetNextFiveDaysForecastUseCase
 ) : ViewModel() {
 
     private val _currentWeather = MutableStateFlow<UIState<Weather>>(UIState.Initial)
@@ -42,7 +44,7 @@ class HomeViewModel @Inject constructor(
             _currentWeather.value = UIState.Loading
             _currentWeather.value = try {
                 UIState.Data(
-                    data = baseWeatherRepository.getCurrentWeather(
+                    data = getCurrentWeatherUseCase(
                         lat = lat,
                         lng = lng,
                         units = units
@@ -63,7 +65,7 @@ class HomeViewModel @Inject constructor(
                         _nextFiveDaysForecast.value = UIState.Loading
                         _nextFiveDaysForecast.value = try {
                             UIState.Data(
-                                data = baseWeatherRepository.getNextFiveDaysForecast(
+                                data = getNextFiveDaysForecastUseCase(
                                     lat = it.lat,
                                     lng = it.lng,
                                     units = it.units

@@ -5,6 +5,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -71,7 +73,8 @@ fun PermissionDeniedContent(
     initialContent: @Composable (() -> Unit) -> Unit,
     onRequestPermission: () -> Unit
 ) {
-    if (shouldShowRationale) {
+    val shouldShowDialog = remember { mutableStateOf(true) }
+    if (shouldShowRationale && shouldShowDialog.value) {
         AlertDialog(
             onDismissRequest = {},
             title = {
@@ -89,6 +92,11 @@ fun PermissionDeniedContent(
             confirmButton = {
                 Button(onClick = onRequestPermission) {
                     Text(stringResource(R.string.give_permission))
+                }
+            },
+            dismissButton = {
+                Button(onClick = { shouldShowDialog.value = false }) {
+                    Text(stringResource(R.string.cancel))
                 }
             }
         )
