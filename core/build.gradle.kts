@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.core"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 30
@@ -30,6 +30,12 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        compose = true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.5.1"
+    }
 }
 
 dependencies {
@@ -41,7 +47,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-//    implementation("androidx.compose.material3:material3-window-size-class")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation("androidx.compose.material3:material3-window-size-class")
 
     //Play Services Location
     implementation (libs.play.services.location)
