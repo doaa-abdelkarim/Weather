@@ -1,16 +1,21 @@
 package com.example.data.local.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import com.example.core.utils.DateUtil
 import com.example.domain.entities.Weather
 
-@Entity(
-    tableName = "weather_table"
-)
 data class LocalWeather(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int
+    val date: Long?,
+    val name: String?,
+    val description: String?,
+    val icon: String?,
+    val temp: Double?
 )
 
-//fun LocalWeather.asDomainModel(): Weather =
-//    Weather()
+fun LocalWeather.asDomainModel(): Weather =
+    Weather(
+        date = date?.let { DateUtil.convertLongToDate(time = it) },
+        name = name,
+        description = description,
+        icon = icon,
+        temp = temp
+    )

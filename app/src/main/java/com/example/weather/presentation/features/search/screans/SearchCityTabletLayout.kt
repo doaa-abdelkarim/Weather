@@ -1,6 +1,5 @@
 package com.example.weather.presentation.features.search.screans
 
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,6 +16,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.presentation.common.ItemInvalidInput
@@ -31,6 +33,7 @@ fun SearchCityTabletLayout(
     cityName: StateFlow<String>,
     onSearchTapped: () -> Unit,
     weatherState: UIState<Weather>,
+    text: String,
     onValueChange: (String) -> Unit
 ) {
     var isInputValid by rememberSaveable { mutableStateOf(true) }
@@ -48,6 +51,7 @@ fun SearchCityTabletLayout(
                     top = dimensionResource(R.dimen.spacing_large)
                 ),
                 hint = stringResource(R.string.search_city),
+                text = text,
                 onValueChange = onValueChange
             )
             if (!isInputValid)
@@ -71,7 +75,17 @@ fun SearchCityTabletLayout(
                 Text(stringResource(R.string.search))
             }
         }
-        Box(modifier = Modifier.weight(1.5f)) {
+        Column(
+            modifier = Modifier.weight(1.5f),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = stringResource(R.string.last_searched_city),
+                style = TextStyle(
+                    fontSize = 21.sp,
+                    fontWeight = FontWeight.Bold
+                )
+            )
             SectionWeather(
                 modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_xlarge)),
                 weatherState = weatherState,

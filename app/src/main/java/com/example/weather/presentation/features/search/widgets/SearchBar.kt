@@ -27,16 +27,15 @@ import com.example.weather.ui.theme.white
 fun SearchBar(
     modifier: Modifier = Modifier,
     hint: String = "",
+    text: String,
     onValueChange: (String) -> Unit = {}
 ) {
-    var text by remember { mutableStateOf("") }
     var isHintDisplayed by remember { mutableStateOf(hint != "") }
 
     Box(modifier = modifier) {
         BasicTextField(
             value = text,
             onValueChange = {
-                text = it
                 onValueChange(it)
             },
             maxLines = 1,

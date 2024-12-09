@@ -15,6 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.presentation.common.ItemInvalidInput
@@ -29,6 +32,7 @@ fun SearchCityPhoneLayout(
     cityName: StateFlow<String>,
     onSearchTapped: () -> Unit,
     weatherState: UIState<Weather>,
+    text: String,
     onValueChange: (String) -> Unit
 ) {
     var isInputValid by rememberSaveable { mutableStateOf(true) }
@@ -45,6 +49,7 @@ fun SearchCityPhoneLayout(
                 top = dimensionResource(R.dimen.spacing_large)
             ),
             hint = stringResource(R.string.search_city),
+            text = text,
             onValueChange = onValueChange
         )
         if (!isInputValid)
@@ -57,7 +62,7 @@ fun SearchCityPhoneLayout(
                 .padding(top = dimensionResource(R.dimen.spacing_normal))
                 .align(Alignment.CenterHorizontally),
             onClick = {
-                if (cityName.value.isEmpty()) {
+                if (cityName.value.isBlank()) {
                     isInputValid = false
                 } else {
                     isInputValid = true
@@ -67,6 +72,14 @@ fun SearchCityPhoneLayout(
         ) {
             Text(stringResource(R.string.search))
         }
+        Text(
+            modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_large)),
+            text = stringResource(R.string.last_searched_city),
+            style = TextStyle(
+                fontSize = 21.sp,
+                fontWeight = FontWeight.Bold
+            )
+        )
         SectionWeather(
             modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_xlarge)),
             weatherState = weatherState,

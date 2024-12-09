@@ -55,6 +55,7 @@ android {
 
 dependencies {
 
+    // Default dependencies
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -75,14 +76,14 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":core"))
 
-    //Accompanist
+    // Accompanist
     implementation (libs.accompanist.permissions)
 
-    //Coil
+    // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 
-    //Coroutines
+    // Coroutines
     implementation(libs.kotlinx.coroutines.android)
 
     // Dagger Hilt
@@ -90,7 +91,10 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
-    //Lifecycle
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
+    // Lifecycle
     // ViewModel
     implementation(libs.lifecycle.viewmodel.ktx)
 
@@ -98,7 +102,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 
-    //Timber
+    // Timber
     implementation(libs.timber)
 
 }

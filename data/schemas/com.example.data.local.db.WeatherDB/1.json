@@ -2,24 +2,46 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "15ef44f712a0cd2bc445ea8de5f44bab",
+    "identityHash": "fc326055ab7b1f0ba5f61962edbc22bd",
     "entities": [
       {
-        "tableName": "weather_table",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "tableName": "LocalWeather",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`date` INTEGER, `name` TEXT, `description` TEXT, `icon` TEXT, `temp` REAL)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "date",
+            "columnName": "date",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "icon",
+            "columnName": "icon",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "temp",
+            "columnName": "temp",
+            "affinity": "REAL",
+            "notNull": false
           }
         ],
         "primaryKey": {
-          "autoGenerate": true,
-          "columnNames": [
-            "id"
-          ]
+          "autoGenerate": false,
+          "columnNames": []
         },
         "indices": [],
         "foreignKeys": []
@@ -28,7 +50,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '15ef44f712a0cd2bc445ea8de5f44bab')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'fc326055ab7b1f0ba5f61962edbc22bd')"
     ]
   }
 }

@@ -53,6 +53,7 @@ fun SearchCityScreen(
                         units = MeasurementUnit.METRIC.value
                     )
                 },
+                text = searchCountryViewModel.cityName.collectAsState().value,
                 weatherState = searchCountryViewModel.cityWeather.collectAsState().value
             )
         else
@@ -65,6 +66,7 @@ fun SearchCityScreen(
                         units = MeasurementUnit.METRIC.value
                     )
                 },
+                text = searchCountryViewModel.cityName.collectAsState().value,
                 weatherState = searchCountryViewModel.cityWeather.collectAsState().value,
             )
     }

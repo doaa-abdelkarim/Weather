@@ -1,6 +1,7 @@
 package com.example.data.remote.models
 
 import com.example.core.utils.DateUtil
+import com.example.data.local.models.LocalWeather
 import com.example.domain.entities.Weather
 import com.google.gson.annotations.SerializedName
 
@@ -141,6 +142,15 @@ data class Wind(
     @field:SerializedName("gust")
     val gust: Any? = null
 )
+
+fun RemoteWeather.asLocalModel(): LocalWeather =
+    LocalWeather(
+        date = dt?.let { dt * 1000 },
+        name = name,
+        description = weather?.get(0)?.description,
+        icon = weather?.get(0)?.icon,
+        temp = main?.temp
+    )
 
 fun RemoteWeather.asDomainModel(): Weather =
     Weather(

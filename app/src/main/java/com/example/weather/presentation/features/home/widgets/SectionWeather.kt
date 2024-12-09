@@ -42,7 +42,7 @@ fun SectionWeather(
                 modifier = modifier.fillMaxSize(),
                 contentAlignment = Alignment.Center,
             ) {
-                if(shouldShowProgressIndicator) CustomCircularProgressIndicator()
+                if (shouldShowProgressIndicator) CustomCircularProgressIndicator()
             }
         }
 
@@ -62,7 +62,7 @@ fun SectionWeather(
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    weatherState.data.date?.let { DateUtil.convertDateToString(it) } ?: "-",
+                    weatherState.data.date?.let { DateUtil.convertDateToString(it) } ?: "",
                     style = TextStyle(
                         fontSize = 21.sp,
                         color = softRed
@@ -72,7 +72,7 @@ fun SectionWeather(
                     modifier = Modifier.padding(
                         top = dimensionResource(R.dimen.spacing_small)
                     ),
-                    text = weatherState.data.name ?: "-",
+                    text = weatherState.data.name ?: "",
                     style = TextStyle(
                         fontSize = 32.sp,
                         color = black,
@@ -83,7 +83,7 @@ fun SectionWeather(
                     modifier = Modifier.padding(
                         top = dimensionResource(R.dimen.spacing_small)
                     ),
-                    text = weatherState.data.description ?: "-",
+                    text = weatherState.data.description ?: "",
                     style = TextStyle(
                         fontSize = 18.sp,
                         color = black,
@@ -99,10 +99,12 @@ fun SectionWeather(
                         contentDescription = stringResource(R.string.weather_condition_icon)
                     )
                     Text(
-                        text = stringResource(
-                            R.string.celsius,
-                            weatherState.data.temp.toString()
-                        ),
+                        text = weatherState.data.temp?.let {
+                            stringResource(
+                                R.string.celsius,
+                                weatherState.data.temp.toString()
+                            )
+                        } ?: "",
                         style = TextStyle(
                             fontSize = 40.sp,
                             color = black,

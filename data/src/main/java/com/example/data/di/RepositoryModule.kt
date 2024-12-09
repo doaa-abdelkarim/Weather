@@ -1,6 +1,11 @@
 package com.example.data.di
 
+import com.example.data.local.PreferencesManager
+import com.example.data.local.datasources.BaseWeatherLocaleDataSource
+import com.example.data.local.datasources.WeatherLocalDataSource
 import com.example.data.remote.apis.WeatherAPI
+import com.example.data.remote.datasources.BaseWeatherRemoteDataSource
+import com.example.data.remote.datasources.WeatherRemoteDataSource
 import com.example.data.repositories.WeatherRepository
 import com.example.domain.repositories.BaseWeatherRepository
 import dagger.Module
@@ -13,9 +18,25 @@ import dagger.hilt.android.components.ViewModelComponent
 class RepositoryModule {
     @Provides
     fun provideWeatherRepository(
-        weatherAPI: WeatherAPI
+        baseWeatherRemoteDatasource: BaseWeatherRemoteDataSource,
+        baseWeatherLocaleDatasource: BaseWeatherLocaleDataSource
     ): BaseWeatherRepository =
         WeatherRepository(
-            weatherAPI = weatherAPI
+            baseWeatherRemoteDatasource = baseWeatherRemoteDatasource,
+            baseWeatherLocaleDatasource = baseWeatherLocaleDatasource
         )
+
+    @Provides
+    fun provideWeatherRemoteDatasource(
+        weatherAPI: WeatherAPI
+    ): BaseWeatherRemoteDataSource = WeatherRemoteDataSource(
+        weatherAPI = weatherAPI
+    )
+
+    @Provides
+    fun provideWeatherLocaleDatasource(
+        preferencesManager: PreferencesManager
+    ): BaseWeatherLocaleDataSource = WeatherLocalDataSource(
+        preferencesManager = preferencesManager
+    )
 }

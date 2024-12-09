@@ -55,6 +55,9 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.hilt.android.compiler)
 
+    // DataStore
+    implementation(libs.androidx.datastore.preferences)
+
     // Gson
     implementation(libs.converter.gson)
 
