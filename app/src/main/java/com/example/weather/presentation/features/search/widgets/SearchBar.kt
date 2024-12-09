@@ -27,7 +27,7 @@ import com.example.weather.ui.theme.white
 fun SearchBar(
     modifier: Modifier = Modifier,
     hint: String = "",
-    onSearch: (String) -> Unit = {}
+    onValueChange: (String) -> Unit = {}
 ) {
     var text by remember { mutableStateOf("") }
     var isHintDisplayed by remember { mutableStateOf(hint != "") }
@@ -37,7 +37,7 @@ fun SearchBar(
             value = text,
             onValueChange = {
                 text = it
-                onSearch(it)
+                onValueChange(it)
             },
             maxLines = 1,
             singleLine = true,

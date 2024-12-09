@@ -5,7 +5,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.weather.presentation.features.home.screens.HomeScreen
-import com.example.weather.presentation.features.search.SearchCityScreen
+import com.example.weather.presentation.features.search.screans.SearchCityScreen
 import com.example.weather.presentation.navigation.Screen.Home
 import com.example.weather.presentation.navigation.Screen.SearchCity
 
