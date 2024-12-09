@@ -31,7 +31,8 @@ fun HomePhoneLayout(
         SectionSearchCity(navigateToSearchCityScreen = navigateToSearchCityScreen)
         SectionWeather(
             modifier = Modifier.fillMaxHeight(0.3f),
-            weatherState = weatherState
+            weatherState = weatherState,
+            shouldShowProgressIndicator = true
         )
         ListForecast(
             nextFiveDaysForecastState = nextFiveDaysForecastState

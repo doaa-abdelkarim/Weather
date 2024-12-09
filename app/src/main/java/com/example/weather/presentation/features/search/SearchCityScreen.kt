@@ -101,7 +101,8 @@ fun SearchCityScreen(
             }
             SectionWeather(
                 modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_xlarge)),
-                weatherState = searchCountryViewModel.cityWeather.collectAsState().value
+                weatherState = searchCountryViewModel.cityWeather.collectAsState().value,
+                shouldShowProgressIndicator = false
             )
         }
     }

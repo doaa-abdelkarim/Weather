@@ -38,7 +38,8 @@ fun HomeTabletLayout(
             SectionSearchCity(navigateToSearchCityScreen = navigateToSearchCityScreen)
             Spacer(modifier = Modifier.weight(1f))
             SectionWeather(
-                weatherState = weatherState
+                weatherState = weatherState,
+                shouldShowProgressIndicator = true
             )
             Spacer(modifier = Modifier.weight(1f))
         }

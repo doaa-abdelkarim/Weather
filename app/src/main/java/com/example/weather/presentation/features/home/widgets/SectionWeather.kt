@@ -33,13 +33,17 @@ import com.example.weather.ui.theme.strongPink
 @Composable
 fun SectionWeather(
     modifier: Modifier = Modifier,
-    weatherState: UIState<Weather>
+    weatherState: UIState<Weather>,
+    shouldShowProgressIndicator: Boolean
 ) {
     when (weatherState) {
         is UIState.Initial -> {
             Box(
                 modifier = modifier.fillMaxSize(),
-            ) {}
+                contentAlignment = Alignment.Center,
+            ) {
+                if(shouldShowProgressIndicator) CustomCircularProgressIndicator()
+            }
         }
 
         is UIState.Loading -> {
