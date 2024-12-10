@@ -27,9 +27,7 @@ import com.example.weather.presentation.common.CustomCircularProgressIndicator
 import com.example.weather.presentation.common.CustomSubcomposeAsyncImage
 import com.example.weather.presentation.common.UIState
 import com.example.weather.presentation.constants.Constants
-import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.softRed
-import com.example.weather.ui.theme.strongPink
 
 @Composable
 fun SectionWeather(
@@ -92,13 +90,14 @@ fun SectionWeather(
                     )
                 )
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    CustomSubcomposeAsyncImage(
-                        modifier = Modifier
-                            .width(dimensionResource(R.dimen.view_size_64dp))
-                            .height((dimensionResource(R.dimen.view_size_64dp))),
-                        data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${weatherState.data.icon}.png",
-                        contentDescription = stringResource(R.string.weather_condition_icon)
-                    )
+                    if (weatherState.data.icon != null)
+                        CustomSubcomposeAsyncImage(
+                            modifier = Modifier
+                                .width(dimensionResource(R.dimen.view_size_64dp))
+                                .height((dimensionResource(R.dimen.view_size_64dp))),
+                            data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${weatherState.data.icon}.png",
+                            contentDescription = stringResource(R.string.weather_condition_icon)
+                        )
                     Text(
                         text = weatherState.data.temp?.let {
                             stringResource(
