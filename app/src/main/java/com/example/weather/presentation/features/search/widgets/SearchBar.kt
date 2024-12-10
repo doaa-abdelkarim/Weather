@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -20,6 +19,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import com.example.weather.R
+import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.lightGray
 import com.example.weather.ui.theme.white
 
@@ -40,7 +40,7 @@ fun SearchBar(
             },
             maxLines = 1,
             singleLine = true,
-            textStyle = TextStyle(color = MaterialTheme.colorScheme.onPrimary),
+            textStyle = TextStyle(color = black),
             modifier = Modifier
                 .fillMaxWidth()
                 .shadow(5.dp, CircleShape)
