@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,7 +19,6 @@ import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.presentation.common.CustomSubcomposeAsyncImage
 import com.example.weather.presentation.constants.Constants
-import com.example.weather.ui.theme.black
 import com.example.weather.ui.theme.veryDarkGray
 
 @Composable
@@ -32,7 +32,7 @@ fun CellForecast(weather: Weather) {
             text = weather.date?.let { DateUtil.convertDateToString(it) } ?: "-",
             style = TextStyle(
                 fontSize = 18.sp,
-                color = black,
+                color = MaterialTheme.colorScheme.onPrimary,
             )
         )
         Row(
@@ -49,7 +49,7 @@ fun CellForecast(weather: Weather) {
                 text = stringResource(R.string.celsius, weather.temp.toString()),
                 style = TextStyle(
                     fontSize = 18.sp,
-                    color = black,
+                    color = MaterialTheme.colorScheme.onPrimary,
                 )
             )
         }

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -21,8 +22,6 @@ import com.example.domain.entities.Weather
 import com.example.weather.R
 import com.example.weather.presentation.common.CustomCircularProgressIndicator
 import com.example.weather.presentation.common.UIState
-import com.example.weather.ui.theme.black
-import com.example.weather.ui.theme.strongPink
 
 @Composable
 fun ListForecast(
@@ -36,7 +35,7 @@ fun ListForecast(
             text = stringResource(R.string.five_day_forecast),
             style = TextStyle(
                 fontSize = 24.sp,
-                color = black,
+                color = MaterialTheme.colorScheme.onPrimary,
                 fontWeight = FontWeight.Bold
             )
         )
@@ -72,7 +71,7 @@ fun ListForecast(
                         text = nextFiveDaysForecastState.error.localizedMessage ?: stringResource(
                             R.string.unknown_error
                         ),
-                        style = TextStyle(color = strongPink),
+                        style = TextStyle(color = MaterialTheme.colorScheme.onError),
                         textAlign = TextAlign.Center
                     )
                 }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -75,7 +76,7 @@ fun SectionWeather(
                     text = weatherState.data.name ?: "",
                     style = TextStyle(
                         fontSize = 32.sp,
-                        color = black,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         fontWeight = FontWeight.Bold
                     )
                 )
@@ -86,7 +87,7 @@ fun SectionWeather(
                     text = weatherState.data.description ?: "",
                     style = TextStyle(
                         fontSize = 18.sp,
-                        color = black,
+                        color = MaterialTheme.colorScheme.onPrimary,
                         fontWeight = FontWeight.Bold
                     )
                 )
@@ -107,7 +108,7 @@ fun SectionWeather(
                         } ?: "",
                         style = TextStyle(
                             fontSize = 40.sp,
-                            color = black,
+                            color = MaterialTheme.colorScheme.onPrimary,
                         )
                     )
                 }
@@ -123,7 +124,7 @@ fun SectionWeather(
                     text = weatherState.error.localizedMessage ?: stringResource(
                         R.string.unknown_error
                     ),
-                    style = TextStyle(color = strongPink),
+                    style = TextStyle(color = MaterialTheme.colorScheme.onError),
                     textAlign = TextAlign.Center
                 )
             }
