@@ -2,8 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
-    id("com.google.dagger.hilt.android")
-    id("androidx.room")
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -32,9 +31,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
-    }
-    room {
-        schemaDirectory("$projectDir/schemas")
     }
 }
 
@@ -66,12 +62,6 @@ dependencies {
 
     // Retrofit
     implementation(libs.retrofit)
-
-    //Room
-    implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.compiler)
-    kapt(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
 
     //Timber
     implementation(libs.timber)
