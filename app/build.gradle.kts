@@ -1,6 +1,5 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.weather.android.application)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.kapt)
@@ -10,12 +9,10 @@ plugins {
 
 android {
     namespace = "com.example.weather"
-    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.weather"
-        minSdk = 30
-        targetSdk = 34
+
         versionCode = 1
         versionName = "1.0"
 
@@ -34,13 +31,7 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
     buildFeatures {
         compose = true
     }
@@ -78,7 +69,7 @@ dependencies {
     implementation(projects.domain)
 
     // Accompanist
-    implementation (libs.accompanist.permissions)
+    implementation(libs.accompanist.permissions)
 
     // Coil
     implementation(libs.coil.compose)
