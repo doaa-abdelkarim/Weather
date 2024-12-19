@@ -73,9 +73,9 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation(project(":core"))
-    implementation(project(":data"))
-    implementation(project(":domain"))
+    implementation(projects.core)
+    implementation(projects.data)
+    implementation(projects.domain)
 
     // Accompanist
     implementation (libs.accompanist.permissions)

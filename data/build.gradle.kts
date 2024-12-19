@@ -43,8 +43,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation(project(":core"))
-    implementation(project(":domain"))
+    implementation(projects.core)
+    implementation(projects.domain)
 
     // Dagger Hilt
     implementation(libs.hilt.android)
