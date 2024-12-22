@@ -1,6 +1,6 @@
 package com.example.data.remote.models
 
-import com.example.core.utils.DateUtil
+import com.example.common.utils.DateUtil
 import com.example.data.local.models.LocalWeather
 import com.example.domain.entities.Weather
 import com.google.gson.annotations.SerializedName

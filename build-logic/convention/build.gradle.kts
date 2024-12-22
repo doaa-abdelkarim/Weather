@@ -27,7 +27,7 @@ dependencies {
 //    compileOnly(libs.firebase.crashlytics.gradlePlugin)
 //    compileOnly(libs.firebase.performance.gradlePlugin)
     compileOnly(libs.kotlin.gradlePlugin)
-//    compileOnly(libs.ksp.gradlePlugin)
+    compileOnly(libs.ksp.gradlePlugin)
 //    compileOnly(libs.room.gradlePlugin)
 //    implementation(libs.truth)
 }
@@ -39,10 +39,30 @@ gradlePlugin {
                 "weather.android.application"//libs.plugins.weather.android.application.asProvider().get().pluginId
             implementationClass = "AndroidApplicationConventionPlugin"
         }
+        register("androidApplicationCompose") {
+            id = libs.plugins.weather.android.application.compose.get().pluginId
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
+        register("androidFeature") {
+            id =libs.plugins.weather.android.feature.get().pluginId
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
         register("androidLibrary") {
             id =
                 "weather.android.library"//libs.plugins.weather.android.library.asProvider().get().pluginId
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidLibraryCompose") {
+            id = libs.plugins.weather.android.library.compose.get().pluginId
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
+        }
+        register("hilt") {
+            id = libs.plugins.weather.hilt.get().pluginId
+            implementationClass = "HiltConventionPlugin"
+        }
+        register("jvmLibrary") {
+            id = libs.plugins.weather.jvm.library.get().pluginId
+            implementationClass = "JvmLibraryConventionPlugin"
         }
     }
 }

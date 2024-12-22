@@ -23,7 +23,11 @@ dependencyResolutionManagement {
 rootProject.name = "Weather"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
+//include(":build-logic:convention")
+include(":core:common")
+include(":core:designsystem")
+include(":core:localization")
 include(":data")
 include(":domain")
-include(":core")
-//include(":build-logic:convention")
+include(":feature:home")
+include(":feature:search")

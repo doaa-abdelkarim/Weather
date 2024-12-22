@@ -1,6 +1,6 @@
 package com.example.data.local.models
 
-import com.example.core.utils.DateUtil
+import com.example.common.utils.DateUtil
 import com.example.domain.entities.Weather
 
 data class LocalWeather(
