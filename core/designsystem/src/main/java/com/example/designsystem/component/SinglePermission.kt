@@ -1,4 +1,4 @@
-package com.example.designsystem
+package com.example.designsystem.component
 
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button

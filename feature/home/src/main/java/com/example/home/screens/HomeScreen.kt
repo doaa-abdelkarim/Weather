@@ -34,7 +34,7 @@ import com.example.domain.entities.Weather
 import com.example.home.intents.ListForecastIntent
 import com.example.home.viewmodels.HomeViewModel
 import com.example.localization.R
-import com.example.designsystem.RequestPermission
+import com.example.designsystem.component.RequestPermission
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 
 @OptIn(ExperimentalPermissionsApi::class)

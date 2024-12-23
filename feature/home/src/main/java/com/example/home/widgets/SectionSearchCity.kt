@@ -14,8 +14,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
+import com.example.designsystem.theme.pureBlue
 import com.example.localization.R
-import com.example.weather.ui.theme.pureBlue
 
 @Composable
 fun SectionSearchCity(navigateToSearchCityScreen: () -> Unit) {

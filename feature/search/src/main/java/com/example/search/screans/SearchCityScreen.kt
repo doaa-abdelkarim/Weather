@@ -14,6 +14,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.common.constants.enum.MeasurementUnit
+import com.example.common.extensions.isLargeScreen
 import com.example.search.viewmodels.SearchCityViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

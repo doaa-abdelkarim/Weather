@@ -16,10 +16,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.Constants
 import com.example.common.utils.DateUtil
-import com.example.designsystem.CustomSubcomposeAsyncImage
+import com.example.designsystem.component.CustomSubcomposeAsyncImage
+import com.example.designsystem.theme.veryDarkGray
 import com.example.domain.entities.Weather
 import com.example.localization.R
-import com.example.weather.ui.theme.veryDarkGray
 
 @Composable
 fun CellForecast(weather: Weather) {

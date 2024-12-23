@@ -19,7 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.UIState
-import com.example.designsystem.CustomCircularProgressIndicator
+import com.example.designsystem.component.CustomCircularProgressIndicator
 import com.example.domain.entities.Weather
 import com.example.localization.R
 

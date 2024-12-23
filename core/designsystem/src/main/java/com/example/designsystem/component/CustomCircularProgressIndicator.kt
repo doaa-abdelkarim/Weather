@@ -1,8 +1,8 @@
-package com.example.designsystem
+package com.example.designsystem.component
 
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.runtime.Composable
-import com.example.weather.ui.theme.softRed
+import com.example.designsystem.theme.softRed
 
 @Composable
 fun CustomCircularProgressIndicator() {

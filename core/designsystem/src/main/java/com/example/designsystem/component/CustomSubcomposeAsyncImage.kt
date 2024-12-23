@@ -1,4 +1,4 @@
-package com.example.designsystem
+package com.example.designsystem.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.runtime.Composable
@@ -10,7 +10,8 @@ import androidx.compose.ui.res.stringResource
 import coil3.compose.SubcomposeAsyncImage
 import coil3.request.ImageRequest
 import coil3.request.crossfade
-import com.example.localization.R
+import coil3.request.placeholder
+import com.example.designsystem.R
 
 @Composable
 fun CustomSubcomposeAsyncImage(
@@ -30,7 +31,7 @@ fun CustomSubcomposeAsyncImage(
         error = {
             error?.invoke() ?: Image(
                 painter = painterResource(R.drawable.ic_broken_image),
-                contentDescription = stringResource(R.string.broken_image),
+                contentDescription = stringResource(com.example.localization.R.string.broken_image),
                 alpha = 0.2f,
             )
         },

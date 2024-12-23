@@ -3,8 +3,6 @@ plugins {
     alias(libs.plugins.weather.android.application.compose)
     alias(libs.plugins.weather.hilt)
     alias(libs.plugins.kotlin.serialization)
-//    alias(libs.plugins.kotlin.kapt)
-//    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -61,37 +59,13 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.test.manifest)
 
+    implementation(projects.data)
+    implementation(projects.core.designsystem)
     implementation(projects.feature.home)
     implementation(projects.feature.search)
 
-    // Accompanist
-//    implementation(libs.accompanist.permissions)
-
-    // Dagger Hilt
-//    implementation(libs.hilt.android)
-//    implementation(libs.androidx.hilt.navigation.compose)
-//    kapt(libs.hilt.android.compiler)
-
-    // Navigation Component
-//    implementation(libs.androidx.navigation.compose)
-
-    //------------------------------
-
-    // Coil
-//    implementation(libs.coil.compose)
-//    implementation(libs.coil.network.okhttp)
-
     // Timber
     implementation(libs.timber)
-
-
-    // Coroutines
-//    implementation(libs.kotlinx.coroutines.android)
-
-
-    // Lifecycle
-    // ViewModel
-//    implementation(libs.lifecycle.viewmodel.ktx)
 
     // Serialization
     implementation(libs.kotlinx.serialization.json)

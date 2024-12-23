@@ -5,11 +5,8 @@ plugins {
 
 android {
     namespace = "com.example.designsystem"
-    compileSdk = 34
 
     defaultConfig {
-        minSdk = 30
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -23,13 +20,6 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
 }
 
 dependencies {
@@ -41,8 +31,8 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    implementation(projects.localization)
     implementation(projects.core.common)
-    implementation(projects.core.localization)
     implementation(projects.domain)
 
     // Accompanist

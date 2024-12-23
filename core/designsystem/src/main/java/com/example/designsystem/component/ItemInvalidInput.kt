@@ -1,4 +1,4 @@
-package com.example.designsystem
+package com.example.designsystem.component
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

@@ -1,4 +1,4 @@
-package com.example.designsystem
+package com.example.designsystem.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -23,9 +23,9 @@ import androidx.compose.ui.unit.sp
 import com.example.common.constants.Constants.WEATHER_CONDITION_ICON_BASE_URL
 import com.example.common.constants.UIState
 import com.example.common.utils.DateUtil
+import com.example.designsystem.theme.softRed
 import com.example.domain.entities.Weather
 import com.example.localization.R
-import com.example.weather.ui.theme.softRed
 
 @Composable
 fun SectionWeather(

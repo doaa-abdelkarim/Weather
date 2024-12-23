@@ -12,7 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import com.example.common.constants.UIState
-import com.example.designsystem.SectionWeather
+import com.example.designsystem.component.SectionWeather
 import com.example.domain.entities.Weather
 import com.example.home.widgets.ListForecast
 import com.example.home.widgets.SectionSearchCity

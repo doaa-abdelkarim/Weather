@@ -20,8 +20,8 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.UIState
-import com.example.designsystem.ItemInvalidInput
-import com.example.designsystem.SectionWeather
+import com.example.designsystem.component.ItemInvalidInput
+import com.example.designsystem.component.SectionWeather
 import com.example.domain.entities.Weather
 import com.example.localization.R
 import com.example.search.widgets.SearchBar
