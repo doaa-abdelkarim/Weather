@@ -16,10 +16,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.Constants
 import com.example.common.utils.DateUtil
+import com.example.designsystem.R.dimen
 import com.example.designsystem.component.CustomSubcomposeAsyncImage
 import com.example.designsystem.theme.veryDarkGray
 import com.example.domain.entities.Weather
-import com.example.localization.R
+import com.example.localization.R.string
 
 @Composable
 fun CellForecast(weather: Weather) {
@@ -40,13 +41,13 @@ fun CellForecast(weather: Weather) {
         ) {
             CustomSubcomposeAsyncImage(
                 modifier = Modifier
-                    .width(dimensionResource(R.dimen.view_size_48dp))
-                    .height((dimensionResource(R.dimen.view_size_48dp))),
+                    .width(dimensionResource(dimen.view_size_48dp))
+                    .height((dimensionResource(dimen.view_size_48dp))),
                 data = "${Constants.WEATHER_CONDITION_ICON_BASE_URL}${weather.icon}.png",
-                contentDescription = stringResource(R.string.weather_condition_icon)
+                contentDescription = stringResource(string.weather_condition_icon)
             )
             Text(
-                text = stringResource(R.string.celsius, weather.temp.toString()),
+                text = stringResource(string.celsius, weather.temp.toString()),
                 style = TextStyle(
                     fontSize = 18.sp,
                     color = MaterialTheme.colorScheme.onPrimary,

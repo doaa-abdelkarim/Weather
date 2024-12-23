@@ -19,9 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.UIState
+import com.example.designsystem.R.dimen
 import com.example.designsystem.component.CustomCircularProgressIndicator
 import com.example.domain.entities.Weather
-import com.example.localization.R
+import com.example.localization.R.string
 
 @Composable
 fun ListForecast(
@@ -30,9 +31,9 @@ fun ListForecast(
     Column(modifier = Modifier.fillMaxWidth()) {
         Text(
             modifier = Modifier.padding(
-                start = dimensionResource(R.dimen.spacing_small)
+                start = dimensionResource(dimen.spacing_small)
             ),
-            text = stringResource(R.string.five_day_forecast),
+            text = stringResource(string.five_day_forecast),
             style = TextStyle(
                 fontSize = 24.sp,
                 color = MaterialTheme.colorScheme.onPrimary,
@@ -52,8 +53,8 @@ fun ListForecast(
             is UIState.Data -> {
                 LazyColumn(
                     contentPadding = PaddingValues(
-                        horizontal = dimensionResource(R.dimen.spacing_normal),
-                        vertical = dimensionResource(R.dimen.spacing_small)
+                        horizontal = dimensionResource(dimen.spacing_normal),
+                        vertical = dimensionResource(dimen.spacing_small)
                     )
                 ) {
                     items(nextFiveDaysForecastState.data.size) { index ->
@@ -69,7 +70,7 @@ fun ListForecast(
                 ) {
                     Text(
                         text = nextFiveDaysForecastState.error.localizedMessage ?: stringResource(
-                            R.string.unknown_error
+                            string.unknown_error
                         ),
                         style = TextStyle(color = MaterialTheme.colorScheme.onError),
                         textAlign = TextAlign.Center

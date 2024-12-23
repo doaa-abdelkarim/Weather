@@ -18,10 +18,10 @@ import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
+import com.example.designsystem.R
 import com.example.designsystem.theme.black
 import com.example.designsystem.theme.lightGray
 import com.example.designsystem.theme.white
-import com.example.localization.R
 
 @Composable
 fun SearchBar(

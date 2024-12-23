@@ -14,25 +14,26 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.sp
+import com.example.designsystem.R.dimen
 import com.example.designsystem.theme.pureBlue
-import com.example.localization.R
+import com.example.localization.R.string
 
 @Composable
 fun SectionSearchCity(navigateToSearchCityScreen: () -> Unit) {
     Row(
         modifier = Modifier
             .padding(
-                horizontal = dimensionResource(R.dimen.spacing_small),
+                horizontal = dimensionResource(dimen.spacing_small),
             )
             .clickable { navigateToSearchCityScreen() },
     ) {
         Icon(
             imageVector = Icons.Default.Search,
             tint = pureBlue,
-            contentDescription = stringResource(R.string.search)
+            contentDescription = stringResource(string.search)
         )
         Text(
-            text = stringResource(R.string.search_city),
+            text = stringResource(string.search_city),
             style = TextStyle(
                 fontSize = 16.sp,
                 color = pureBlue,

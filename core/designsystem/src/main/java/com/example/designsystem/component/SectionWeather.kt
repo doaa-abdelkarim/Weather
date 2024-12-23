@@ -23,9 +23,10 @@ import androidx.compose.ui.unit.sp
 import com.example.common.constants.Constants.WEATHER_CONDITION_ICON_BASE_URL
 import com.example.common.constants.UIState
 import com.example.common.utils.DateUtil
+import com.example.designsystem.R.dimen
 import com.example.designsystem.theme.softRed
 import com.example.domain.entities.Weather
-import com.example.localization.R
+import com.example.localization.R.string
 
 @Composable
 fun SectionWeather(
@@ -67,7 +68,7 @@ fun SectionWeather(
                 )
                 Text(
                     modifier = Modifier.padding(
-                        top = dimensionResource(R.dimen.spacing_small)
+                        top = dimensionResource(dimen.spacing_small)
                     ),
                     text = weatherState.data.name ?: "",
                     style = TextStyle(
@@ -78,7 +79,7 @@ fun SectionWeather(
                 )
                 Text(
                     modifier = Modifier.padding(
-                        top = dimensionResource(R.dimen.spacing_small)
+                        top = dimensionResource(dimen.spacing_small)
                     ),
                     text = weatherState.data.description ?: "",
                     style = TextStyle(
@@ -91,15 +92,15 @@ fun SectionWeather(
                     if (weatherState.data.icon != null)
                         CustomSubcomposeAsyncImage(
                             modifier = Modifier
-                                .width(dimensionResource(R.dimen.view_size_64dp))
-                                .height((dimensionResource(R.dimen.view_size_64dp))),
+                                .width(dimensionResource(dimen.view_size_64dp))
+                                .height((dimensionResource(dimen.view_size_64dp))),
                             data = "$WEATHER_CONDITION_ICON_BASE_URL${weatherState.data.icon}.png",
-                            contentDescription = stringResource(R.string.weather_condition_icon)
+                            contentDescription = stringResource(string.weather_condition_icon)
                         )
                     Text(
                         text = weatherState.data.temp?.let {
                             stringResource(
-                                R.string.celsius,
+                                string.celsius,
                                 weatherState.data.temp.toString()
                             )
                         } ?: "",
@@ -119,7 +120,7 @@ fun SectionWeather(
             ) {
                 Text(
                     text = weatherState.error.localizedMessage ?: stringResource(
-                        R.string.unknown_error
+                        string.unknown_error
                     ),
                     style = TextStyle(color = MaterialTheme.colorScheme.onError),
                     textAlign = TextAlign.Center

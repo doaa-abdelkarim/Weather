@@ -20,10 +20,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.UIState
+import com.example.designsystem.R.dimen
 import com.example.designsystem.component.ItemInvalidInput
 import com.example.designsystem.component.SectionWeather
 import com.example.domain.entities.Weather
-import com.example.localization.R
+import com.example.localization.R.string
 import com.example.search.widgets.SearchBar
 import kotlinx.coroutines.flow.StateFlow
 
@@ -41,27 +42,27 @@ fun SearchCityTabletLayout(
         modifier = Modifier
             .padding(innerPadding)
             .padding(
-                horizontal = dimensionResource(R.dimen.spacing_xlarge),
+                horizontal = dimensionResource(dimen.spacing_xlarge),
             )
             .fillMaxSize(),
     ) {
         Column(modifier = Modifier.weight(1f)) {
             SearchBar(
                 modifier = Modifier.padding(
-                    top = dimensionResource(R.dimen.spacing_large)
+                    top = dimensionResource(dimen.spacing_large)
                 ),
-                hint = stringResource(R.string.search_city),
+                hint = stringResource(string.search_city),
                 text = text,
                 onValueChange = onValueChange
             )
             if (!isInputValid)
                 ItemInvalidInput(
-                    modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_small)),
-                    text = stringResource(R.string.please_enter_city_name)
+                    modifier = Modifier.padding(top = dimensionResource(dimen.spacing_small)),
+                    text = stringResource(string.please_enter_city_name)
                 )
             Button(
                 modifier = Modifier
-                    .padding(top = dimensionResource(R.dimen.spacing_normal))
+                    .padding(top = dimensionResource(dimen.spacing_normal))
                     .align(Alignment.CenterHorizontally),
                 onClick = {
                     if (cityName.value.isEmpty()) {
@@ -72,7 +73,7 @@ fun SearchCityTabletLayout(
                     }
                 }
             ) {
-                Text(stringResource(R.string.search))
+                Text(stringResource(string.search))
             }
         }
         Column(
@@ -80,14 +81,14 @@ fun SearchCityTabletLayout(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = stringResource(R.string.last_searched_city),
+                text = stringResource(string.last_searched_city),
                 style = TextStyle(
                     fontSize = 21.sp,
                     fontWeight = FontWeight.Bold
                 )
             )
             SectionWeather(
-                modifier = Modifier.padding(top = dimensionResource(R.dimen.spacing_xlarge)),
+                modifier = Modifier.padding(top = dimensionResource(dimen.spacing_xlarge)),
                 weatherState = weatherState,
                 shouldShowProgressIndicator = false
             )
