@@ -20,7 +20,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.example.common.constants.UIState
 import com.example.designsystem.R.dimen
-import com.example.designsystem.component.CustomCircularProgressIndicator
 import com.example.domain.entities.Weather
 import com.example.localization.R.string
 
@@ -42,12 +41,7 @@ fun ListForecast(
         )
         when (nextFiveDaysForecastState) {
             is UIState.Initial, UIState.Loading -> {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    CustomCircularProgressIndicator()
-                }
+                SkeletonListForeCast()
             }
 
             is UIState.Data -> {

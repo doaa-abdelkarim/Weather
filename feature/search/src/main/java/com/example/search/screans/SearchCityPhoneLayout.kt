@@ -43,7 +43,7 @@ fun SearchCityPhoneLayout(
             .padding(
                 horizontal = dimensionResource(dimen.spacing_large),
             )
-            .fillMaxSize(),
+            .fillMaxSize()
     ) {
         SearchBar(
             modifier = Modifier.padding(

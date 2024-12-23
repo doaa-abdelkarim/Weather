@@ -36,21 +36,18 @@ fun SectionWeather(
 ) {
     when (weatherState) {
         is UIState.Initial -> {
-            Box(
-                modifier = modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center,
-            ) {
-                if (shouldShowProgressIndicator) CustomCircularProgressIndicator()
-            }
+            if (shouldShowProgressIndicator)
+                SkeletonSectionWeather(
+                    modifier = modifier.fillMaxSize(),
+                    shouldShowProgressIndicator = shouldShowProgressIndicator
+                )
         }
 
         is UIState.Loading -> {
-            Box(
+            SkeletonSectionWeather(
                 modifier = modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center,
-            ) {
-                CustomCircularProgressIndicator()
-            }
+                shouldShowProgressIndicator = shouldShowProgressIndicator
+            )
         }
 
         is UIState.Data -> {

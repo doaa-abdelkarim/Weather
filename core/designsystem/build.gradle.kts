@@ -42,6 +42,9 @@ dependencies {
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
 
+    //Shimmer
+    implementation(libs.compose.shimmer)
+
     implementation(libs.androidx.material3)
 
 }

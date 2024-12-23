@@ -6,7 +6,15 @@
     <dimen name="spacing_large">24dp</dimen>
     <dimen name="spacing_xlarge">32dp</dimen>
 
+    <!--    Rounded corners-->
+    <dimen name="rounded_corner_radius_4dp">8dp</dimen>
+
     <!--    View size-->
+    <dimen name="zero">0dp</dimen>
+    <dimen name="view_size_15dp">15dp</dimen>
+    <dimen name="view_size_25dp">25dp</dimen>
+    <dimen name="view_size_30dp">30dp</dimen>
+    <dimen name="view_size_35dp">35dp</dimen>
     <dimen name="view_size_64dp">64dp</dimen>
     <dimen name="view_size_48dp">48dp</dimen>
 
